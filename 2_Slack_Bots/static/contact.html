@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>This is an HTML</title>
+</head>
+<body>
+    <h1>Awesome Contact Me</h1>
+    <hr><form id="frmContactMe">
+        <input type="text" name="txtName" placeholder="Name" required><br/>
+        <input type="email" name="txtEmail" placeholder="Email" required><br/>
+        <textarea name="txtMessage" form="frmContactMe" placeholder="Write a message here..." required rows="4" cols="30"></textarea><br/>
+        <button type="submit">Send me!</button>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script>
+    $("#frmContactMe").on("submit", (e) => {
+        $.ajax({
+            method: "POST",
+            url: "/submitcontact",
+            data: $("#frmContactMe").serialize()
+        }).done((sData) => {
+            console.log(sData);
+        }).fail((error) => {
+            console.log(error);
+        });
+        return false;
+    });
+    </script>
+</body>
+</html>

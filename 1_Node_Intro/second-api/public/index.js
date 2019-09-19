@@ -1,4 +1,18 @@
 console.log("Awesome console.log");
+$(document).ready(function() { 
+    $("#frmAboutMe").on("submit", (e) => {
+        $.ajax({
+            method: "POST",
+            url: "/aboutme",
+            data: $("#frmAboutMe").serialize()
+        }).done((sData) => {
+            console.log(sData);
+        }).fail((error) => {
+            console.log(error);
+        });
+        return false;
+    });
+});
 
 function getAboutMe(sFirstName, sLastName){
     if($("#aboutme").html() != ""){
@@ -8,11 +22,7 @@ function getAboutMe(sFirstName, sLastName){
     }
     $.ajax({
         method: "GET",
-        url: "/sayhello",
-        data:{
-            firstName: sFirstName,
-            lastName: sLastName
-        }
+        url: "/sayhello"
     }).done((sData) => {
         $("#aboutme").append(sData);
     }).fail((error) => {

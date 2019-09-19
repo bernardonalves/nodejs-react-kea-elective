@@ -4,6 +4,13 @@ const app = express();
 const bodyParser = require("body-parser");
 const serverPort = 3000;
 
+var nameInfo = {}
+
+// Allow POST requests
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
+
+// Serve Static Files
 app.use(express.static("../public"));
 /*app.get("/", (req, res) => {
     res.sendFile(__dirname+"/public/index.html")
@@ -11,14 +18,16 @@ app.use(express.static("../public"));
 
 // sayhello?firstName=Benny&lastName=Silva
 app.get("/sayhello/", (req, res) => {
-    console.log(req.query);
-    res.send("Hello! Welcome back "+req.query.firstName+" "+req.query.lastName);
+    console.log(nameInfo.length);
+    if(nameInfo.length !== undefined) res.send("Hello! Welcome back "+req.query.firstName+" "+req.query.lastName);
+    else res.send("Hello! Welcome back "+nameInfo.firstName+" "+nameInfo.lastName);
 });
 
-app.use(bodyParser.urlencoded());
-app.post("/animal", (req, res) => {
-    console.log(req.body);
-    res.send(req.body.animal);
+app.post("/aboutme", (req, res) => {
+    nameInfo.firstName = req.body.firstName;
+    nameInfo.lastName = req.body.lastName;
+    res.send("Changed: "+nameInfo.firstName+" "+nameInfo.lastName);
+    console.log(req.body)
 })
 
 app.listen(serverPort, (error) => {
