@@ -61,4 +61,4 @@ typings/
 .next
 
 # database information
-server/mysql_config/*
+**/mysql_config/*
