@@ -1,0 +1,102 @@
+.App {
+  background-color: #282c34;
+  text-align: center;
+}
+
+.App-logo {
+  height: 10vmin;
+  margin-top: 1%;
+  margin-bottom: -1%;
+}
+
+.App-header {
+  min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  margin-left: auto;
+  padding: 0;
+  overflow: hidden;
+}
+
+li, button {
+  border: none;
+  display: inline-block;
+  background-color: rgba(0,0,0,.1);
+  margin-left: 5px;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: rgba(0,0,0,.3);
+}
+
+form {
+  margin:2%;
+}
+button,input {
+  border: none;
+  display: inline-block;
+  background-color: rgba(0,0,0,.1);
+  margin-left: 5px;
+  padding: 14px 16px;
+  color: #fff;
+}
+
+#motto p {
+  color: #4a7aff;
+}
+
+.weathercontainer {
+  margin: auto;
+  margin-top:2%;
+  width: 30%;
+  background-color: rgba(100,100,100,0.2);
+  padding: 10px;
+}
+
+#weathericon {
+  font-size:10vh;
+  color: #fff;
+  margin-bottom: 3%;
+}
+
+#temperaturetext {
+  margin-top: 0px;
+  margin-bottom:0px;
+  font-size:5vw;
+  color: #fff;
+}
+
+#descriptiontext{
+  margin-top: 10px;
+  margin-bottom:0px;
+  font-size:2vw;
+  color: #fff;
+}
+
+sup {
+  font-size: 2vw;
+}
+
+#locationtext {
+  margin-top: 0px;
+  font-size:2vw;
+  color: #fff;
+}

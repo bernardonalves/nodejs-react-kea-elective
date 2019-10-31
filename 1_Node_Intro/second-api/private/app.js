@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 
 const bodyParser = require("body-parser");
+const request = require("request");
 const serverPort = 3000;
 
 var nameInfo = {}
@@ -27,8 +28,16 @@ app.post("/aboutme", (req, res) => {
     nameInfo.firstName = req.body.firstName;
     nameInfo.lastName = req.body.lastName;
     res.send("Changed: "+nameInfo.firstName+" "+nameInfo.lastName);
-    console.log(req.body)
-})
+    console.log(req.body);
+});
+
+app.get("/server-side-request", (req,res) => {
+    request({url:"https://google.pt/", encoding:"binary" }, (error, response, body) => {
+        console.log('error:', error);
+        console.log('statusCode:',response);
+        res.send(body);
+    });
+});
 
 app.listen(serverPort, (error) => {
     if(error) console.log(error);

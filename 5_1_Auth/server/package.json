@@ -1,0 +1,20 @@
+{
+  "name": "Auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate:make": "knex migrate:make migration_name",
+    "migrate:run": "knex migrate:latest",
+    "migrate:rollback": "knex migrate:rollback"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.19.5",
+    "mysql2": "^1.7.0"
+  }
+}
