@@ -1,18 +1,38 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
-import './Secrets.js';
+import { postRequest } from './components/functions';
+//import './Secrets.js';
+import Header from './components/header';
+import LoginView from './components/loginView'
 
 class  App extends React.Component  {
-  state = {
-    emailRecipint: '',
-    emailSender: '',
-    emailSubject: '',
-    emailContent: ''
-  };
-
-  sendEmail = () => {
-    let api_url = `http://localhost:4000/send-email?`;
-    fetch();
+  
+  render() {
+    return(
+      <div className="App">
+        <Header/>
+        <Router>
+          <>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Login</Link>
+              </li>
+              <li>
+                <Link to="/email">Email</Link>
+              </li>
+            </ul>
+          </nav>
+          <Switch>
+            <Route exact path="/" />
+            <Route exact path="/email" />
+          </Switch>
+          </>
+        </Router>
+        <LoginView/>
+      </div>
+    );
   }
 }
 
