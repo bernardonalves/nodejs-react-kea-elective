@@ -15,7 +15,11 @@ router.get('/users', async (req, res) => {
 });
 
 router.post('/users/login', async (req, res) => {
-    console.log(req.body)
+    console.log(req.session)
+    if(req.session.loggedIn && req.session.email){
+        res.json({code: 406, response: "You're already logged in, you can't register again!"});
+        return;
+    }
     try{
         const users = await User.query().select().where({email: req.body.email}).limit(1);
         const user = users[0];
@@ -27,7 +31,7 @@ router.post('/users/login', async (req, res) => {
                 if (response === true){
                     req.session.email = user.email;
                     req.session.loggedIn = true;
-                    res.status(200).json({ response:"OK", name: user.name });
+                    res.json({ code:200, response:"OK", name: user.name, id: user.id });
                 } else {
                     res.status(400).json({response: "Something went wrong. Try again"});
                 }

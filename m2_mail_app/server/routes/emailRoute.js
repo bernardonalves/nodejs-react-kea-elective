@@ -1,12 +1,13 @@
 const router = require('express').Router();
 const Email = require('../models/Email');
 
-router.post('/send-email', async (req, res) => {
+router.post('/email/send', async (req, res) => {
     console.log(req.body)
     if (!req.session.loggedIn || !req.session.email){
         res.status(403).json({response: "Unauthorized to use this api endpoint."})
     }
     if (req.body.subject && req.body.content && validateEmail(req.body.recipient)){
+        console.log(req.session.email, req.body)
         try{ 
             let email = {
                 sender_email: req.session.email,
@@ -23,6 +24,18 @@ router.post('/send-email', async (req, res) => {
         res.status(200).json({response: "Email Sent Successfully!"})
     } 
     else res.status(400).json({ response: "Bad Request"});
+});
+
+router.get('/email/fetch', async (req,res) => {
+    if(req.session.loggedIn && req.session.email){
+        const emails = await Email.query().select().where({sender_email: req.session.email});
+        console.log(emails);
+        res.json(emails);
+    }
+    else{
+        res.json({response: "You're not authorized to use this entrypoint."})
+    }
+
 });
 
 const validateEmail = (email) => {

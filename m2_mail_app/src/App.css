@@ -1,15 +1,12 @@
 .App {
   text-align: center;
   background-color: #282c34;
-}
-
-.App-logo {
-  height: 40vmin;
-}
+  height: 100vh;
+} 
 
 .App-header {
   background-color: #282c34;
-  min-height: 50vh;
+  min-height: 35vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,15 +19,49 @@
   color: #09d3ac;
 }
 
+h3{
+  color:white;
+}
+/* Nav bar */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  margin-bottom: 40px;
+  margin-left: auto;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgba(0,0,0,.5);
+}
+
+nav li, nav button {
+  border: none;
+  display: inline-block;
+  background-color: rgba(0,0,0,.1);
+  margin-left: 5px;
+}
+
+nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+nav li a:hover {
+  background-color: rgba(0,0,0,.3);
+}
+
 /* Login View */
-.Login {
+.Login, .WriteEmail {
   width: 30%;
   margin:auto;
   padding: 30px;
   background-color: rgba(0,0,0,.2);
 }
 
-.Login h3{
+.Login h3, .WriteEmail h3{
   font-size: 30px;
   color: #fff;
 	font-weight: 100;
@@ -38,9 +69,10 @@
 	margin: -30px -30px 30px -30px;
 }
 
-.Login input[type="text"],
-.Login input[type="email"],
-.Login input[type="password"]
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea
 {
   color: #fff;
 	box-sizing: border-box;
@@ -57,8 +89,12 @@
 	font: 16px Arial, Helvetica, sans-serif;
 	height: 45px;
 }
-.Login input[type="button"], 
-.Login input[type="submit"]{
+textarea{
+	resize:vertical;
+	overflow: hidden;
+}
+input[type="button"], 
+input[type="submit"]{
 	-moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
 	-webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
 	box-shadow: inset 0px 1px 0px 0px #45D6D6;
@@ -77,4 +113,29 @@
 .Login input[type="submit"]:hover {
 	background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
 	background-color:#34CACA;
+}
+
+/* Read Email */
+.json-to-table{
+  margin: auto;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 85vw;
+  text-align: left;
+}
+
+.json-to-table td, .json-to-table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.json-to-table tr:nth-child(even){background-color: rgba(255,255,255,.5);}
+
+.json-to-table tr:hover {background-color: rgba(255,255,255,.5);}
+
+.json-to-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #27A0A0;
+  color: white;
 }

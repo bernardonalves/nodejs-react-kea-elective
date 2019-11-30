@@ -6,7 +6,7 @@ exports.up = function(knex) {
         table.foreign('sender_email').references('email').inTable('users').onDelete('CASCADE').onUpdate('RESTRICT')
         table.string('recipient_email').notNullable();
         table.string('subject').notNullable();
-        table.string('content').notNullable();
+        table.string('content', 8192).notNullable();
         table.timestamp('timestamp').defaultTo(knex.fn.now());
     });
   };
