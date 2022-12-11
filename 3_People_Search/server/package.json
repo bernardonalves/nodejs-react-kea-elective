@@ -15,7 +15,7 @@
   "author": "Bernardo Silva",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "faker": "^4.1.0"
   }
 }
