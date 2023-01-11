@@ -19,7 +19,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
-    "knex": "^0.19.5",
+    "knex": "^2.4.0",
     "mysql2": "^1.7.0",
     "objection": "^1.6.11"
   }
